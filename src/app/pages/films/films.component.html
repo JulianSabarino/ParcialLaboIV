@@ -1,10 +1,10 @@
 
 
   <div class="container">
-
+    <h1 class="display-5 fw-bold">Peliculas</h1>
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Peliculas</h1>
+ 
+      <div class="container-fluid py-5 film-container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
@@ -34,8 +34,8 @@
 
   <div class="container">
 
-    <div class="row align-items-md-stretch align-items-center ">
-      <div class="">
+    <div class="row align-items-md-stretch align-items-center">
+      <div *ngIf="selectedFilm">
         <div class="h-100 p-5 text-bg-dark rounded-3">
           <h2>Detalles</h2>
           <div *ngIf="selectedFilm">
@@ -48,6 +48,18 @@
           </div>
         </div>
       </div>
+
+      <div *ngIf="!selectedFilm">
+        <div class="">
+          <div class="h-100 p-5 text-bg-dark rounded-3">
+            
+            <img src="./src/assets/bannerfilm.jpg">
+
+            <div>
+              
+            </div>
+          </div>
+        </div>
   
     </div>
   
