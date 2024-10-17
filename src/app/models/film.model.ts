@@ -5,7 +5,7 @@ export interface Film{
     name:string;
     type:string;
     releaseDate:string;
-    viewers: number;
     photo: string;
+    viewers: number;
     protagonist: Actor;
 }

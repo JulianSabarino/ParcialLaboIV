@@ -1,21 +1,25 @@
+<div class="alert alert-warning" role="alert" *ngIf="!form.valid && !form.untouched">
+  Datos Invalidos
+</div>
+
 <div class="container">
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
       <h2>Nueva Pelicula</h2>
     </div>
   
-    <form [formGroup]="this.form">
+    <form [formGroup]="this.form" (submit)="createFilm()">
   
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <label for="state" class="form-label">Actores</label>
           </h4>
-          <ul class="list-group mb-3 flag-list">
+          <ul class="list-group mb-3 flag-list actors-list">
   
             <div *ngFor="let actor of actorList">
-              <li class="list-group-item d-flex justify-content-between lh-sm" (click)="selectActor()">
-                <h6 class="my-0">{{actor}}</h6>
+              <li class="list-group-item d-flex justify-content-between lh-sm" (click)="selectActor(actor)">
+                <h6 class="my-0">{{actor.name}} {{actor.surname}}</h6>
               </li>
             </div>
   
@@ -37,7 +41,7 @@
 
             <div class="col-md-6">
                 <label for="country" class="form-label">Tipo</label>
-                <select class="form-select" id="country" required="" fdprocessedid="cnlcc">
+                <select class="form-select" id="country" required="" fdprocessedid="cnlcc" [formControl]="form.controls.type">
                   <option value=""></option>
                   <option>Terror</option>
                   <option>Comedia</option>
@@ -53,7 +57,7 @@
   
             <div class="col-sm-6">
               <label for="lastName" class="form-label">DATEPICKER</label>
-              <input [formControl]="form.controls.surname" type="text" class="form-control" id="lastName" placeholder="" value="" required=""
+              <input [formControl]="form.controls.releaseDate" type="text" class="form-control" id="lastName" placeholder="" value="" required=""
                 fdprocessedid="g20eu">
               <div class="invalid-feedback">
                 Valid last name is required.
@@ -64,9 +68,9 @@
               <label for="document" class="form-label">Foto</label>
               <div class="input-group has-validation">
                 <span class="input-group-text">https/</span>
-                <input [formControl]="form.controls.document" type="text" class="form-control" id="document" placeholder="" required="" fdprocessedid="qrrotq">
+                <input [formControl]="form.controls.photo" type="text" class="form-control" id="document" placeholder="" required="" fdprocessedid="qrrotq">
                 <div class="invalid-feedback">
-                  Your dni is required.
+                  The photo is required
                 </div>
               </div>
             </div>
