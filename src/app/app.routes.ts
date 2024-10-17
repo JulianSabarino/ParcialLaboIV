@@ -25,5 +25,9 @@ export const routes: Routes = [
     {
         path: 'alta',
         loadComponent: ()=> import('./pages/alta/alta.component').then(m=>m.AltaComponent)
+    },
+    {
+        path: 'listado',
+        loadComponent: ()=> import('./components/listado/listado.component').then(m=>m.ListadoComponent)
     }
 ];
