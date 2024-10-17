@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table align-middle table-striped-columns ">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">tipo</th>
+                <th scope="col">Ruedas</th>
+                <th scope="col">Capacidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let helado of helados" id={{helado?.id}} (click)="seleccionarPelicula(helado)">
+                <td>{{helado?.nombre}}</td>
+                <td>{{helado?.tipo}}</td>
+                <td>{{helado?.ruedas}} gr</td>
+                <td>${{helado?.capacidad}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

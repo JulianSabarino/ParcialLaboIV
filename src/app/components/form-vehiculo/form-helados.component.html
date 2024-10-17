@@ -1,0 +1,46 @@
+<form class="needs-validation" (submit)="submit()" [formGroup]="this.form">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [formControl]="form.controls.nombre">
+            <div class="text-danger" *ngIf="form.get('nombre')?.touched">
+                <label *ngIf="form.controls.nombre.getError('required')">Nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" id="tipo"  [formControl]="form.controls.tipo">
+                <option  value="" selected>Seleccione uno</option>
+                <option>terrestre</option>
+                <option>aereo</option>
+                <option>maritimo</option>
+            </select>
+            <div class="text-danger" *ngIf="form.get('tipo')?.touched">
+                <label *ngIf="form.controls.tipo.getError('required')">Ingrese tipo de vehiculo</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="precio" class="form-label">Ruedas</label>
+            <input type="text" class="form-control" id="ruedas" [formControl]="form.controls.ruedas" >
+            <div class="text-danger" *ngIf="form.get('ruedas')?.touched">
+                <label *ngIf="form.controls.ruedas.getError('required')">ingrese cant ruedas</label>
+                <label *ngIf="form.controls.ruedas.getError('max')">maxima 6 ruedas</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="peso" class="form-label">Capacidad</label>
+            <input type="number" class="form-control" id="capacidad" [formControl]="form.controls.capacidad" >
+            <div class="text-danger" *ngIf="form.get('capacidad')?.touched">
+                <label *ngIf="form.controls.capacidad.getError('required')">Ingrese el capacidad de la pizza </label>
+                <label *ngIf="form.controls.capacidad.getError('min')">debe transportar minimo 2</label>
+                <label *ngIf="form.controls.capacidad.getError('max')">debe transportar maximo 100</label>
+            </div>
+        </div>
+
+
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="" [disabled]="!form.valid"  [textContent]="tipoForm" ></button>
+</form>

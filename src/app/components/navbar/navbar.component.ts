@@ -1,18 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthFirebaseService } from '../../services/auth.firebase.service';
 import { CommonModule } from '@angular/common';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet,CommonModule],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit{
 
   rooter=inject(Router)
+
 
   authSvc = inject(AuthFirebaseService)
   user:any;
