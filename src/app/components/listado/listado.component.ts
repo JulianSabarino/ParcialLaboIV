@@ -5,7 +5,7 @@ import { DetalleRepartidorComponent } from '../detalle-repartidor/detalle-repart
 import { TablaRepartidorComponent } from '../tabla-repartidor/tabla-repartidor.component';
 import { FormRepartidorComponent } from '../form-repartidor/form-repartidor.component';
 import { DetallePaisComponent } from '../detalle-pais/detalle-pais.component';
-import { Repartidor } from '../../models/repartidor.model';
+import { Chofer } from '../../models/chofer.model';
 
 @Component({
   selector: 'app-listado',
@@ -21,9 +21,9 @@ import { Repartidor } from '../../models/repartidor.model';
 })
 export class ListadoComponent {
 
-  repartidorSelc!:Repartidor
+  repartidorSelc!:Chofer
   paisRepartidor:any;
-  repartidorSeleccionado(repartidor:Repartidor){
+  repartidorSeleccionado(repartidor:Chofer){
     this.repartidorSelc = repartidor
     this.paisRepartidor={
       nombre:repartidor.pais_origen,

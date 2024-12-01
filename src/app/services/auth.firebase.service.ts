@@ -55,7 +55,7 @@ export class AuthFirebaseService {
     })
   }
 
-  //graba caga inicio de secion en la base de datos login
+  //graba caga inicio de sesion en la base de datos login
   addNewLogin(uid: string) {
     const data = {
       idUsuario: uid,

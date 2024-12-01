@@ -1,4 +1,4 @@
-export interface Repartidor{
+export interface Chofer{
     id:string,
     nombre:string | null,
     dni:string, 

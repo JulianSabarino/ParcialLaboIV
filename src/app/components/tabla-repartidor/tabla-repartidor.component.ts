@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RepartidorServices } from '../../services/repartidor.service';
-import { Repartidor } from '../../models/repartidor.model';
+import { ChoferesServices } from '../../services/chofer.service';
+import { Chofer } from '../../models/chofer.model';
 
 
 @Component({
@@ -13,12 +13,12 @@ import { Repartidor } from '../../models/repartidor.model';
 })
 export class TablaRepartidorComponent {
 
-  @Output() peliculaElegida = new EventEmitter<Repartidor>();
+  @Output() peliculaElegida = new EventEmitter<Chofer>();
   @Input() tablaMin:boolean=false
 
-  @Input()repartidores! : Repartidor[] |[];
+  @Input()repartidores! : Chofer[] |[];
 
-  repartidorSvc = inject(RepartidorServices)
+  repartidorSvc = inject(ChoferesServices)
 
  
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class TablaRepartidorComponent {
       })
     }}
 
-    seleccionarRepartidor(repartidor:Repartidor){
+    seleccionarRepartidor(repartidor:Chofer){
       this.peliculaElegida.emit(repartidor)
     }
 }

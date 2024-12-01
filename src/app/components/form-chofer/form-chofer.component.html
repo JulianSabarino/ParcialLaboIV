@@ -1,0 +1,57 @@
+<p>Form-chofer</p>
+<form class="needs-validation" (submit)="submit()" [formGroup]="this.form">
+    <div class="row g-3">
+        <div class="col-12">
+            <label for="nombre" class="form-label">Nombre </label>
+            <input type="text" class="form-control" id="nombre" [formControl]="form.controls.nombre">
+            <div class="text-danger" *ngIf="form.get('nombre')?.touched">
+                <label *ngIf="form.controls.nombre.getError('required')">nombre requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="pais" class="form-label">Pais </label>
+            <input type="text" class="form-control" id="pais" [value]="pais?.nombre" readonly [formControl]="form.controls.pais" >
+            <div class="text-danger" *ngIf="form.get('pais')?.touched">
+                <label *ngIf="form.controls.pais.getError('required')">pais requerido</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="fecha" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="fecha"  [formControl]="form.controls.nacimiento">
+            <div class="text-danger" *ngIf="form.get('nacimiento')?.touched">
+                <label *ngIf="form.controls.nacimiento.getError('required')">fecha de nacimiento requerida</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni" [formControl]="form.controls.dni" >
+            <div class="text-danger" *ngIf="form.get('dni')?.touched">
+                <label *ngIf="form.controls.dni.getError('required')">Ingrese su DNI </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="pizzas" class="form-label">Numero de Licencia</label>
+            <input type="number" class="form-control" id="licencia" [formControl]="form.controls.licencia" >
+            <div class="text-danger" *ngIf="form.get('licencia')?.touched">
+                <label *ngIf="form.controls.licencia.getError('required')">Ingrese la licencia </label>
+                <label *ngIf="form.controls.licencia.getError('min')">La licencia debe tener al menos 7 digitos </label>
+                <label *ngIf="form.controls.licencia.getError('max')">No puede tener mas de 7 digitos </label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="pizzas" class="form-label">Licencia Profesional</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="save-info" (click)="Profesional()">
+                <label class="form-check-label" for="save-info">Es Profesional</label>
+              </div>
+        </div>
+
+
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg" type="" [disabled]="!form.valid"  [textContent]="tipoForm" ></button>
+</form>

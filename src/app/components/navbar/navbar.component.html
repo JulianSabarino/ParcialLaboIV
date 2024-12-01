@@ -7,10 +7,9 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" (click)="rootTo('auth/login')" *ngIf="!user">Log In</a>
         <a class="nav-item nav-link" (click)="logout()" *ngIf="user">Log Out</a>
-        <a class="nav-item nav-link" (click)="rootTo('/alta')">Alta Repartidor</a>
-        <a class="nav-item nav-link" (click)="rootTo('/listado')">Listado</a>
-        <a class="nav-item nav-link" (click)="rootTo('/vehiculos')">Vehiculos</a>
-        
+        <a class="nav-item nav-link" (click)="rootTo('/alta')" *ngIf="user">Alta Repartidor</a>
+        <a class="nav-item nav-link" (click)="rootTo('/listado')" *ngIf="user">Listado</a>
+        <a class="nav-item nav-link" (click)="rootTo('/vehiculos')" *ngIf="user">Vehiculos</a>
       </div>
     </div>
   </nav>

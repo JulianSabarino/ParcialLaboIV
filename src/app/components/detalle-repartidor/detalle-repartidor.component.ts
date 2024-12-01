@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Repartidor } from '../../models/repartidor.model';
+import { Chofer } from '../../models/chofer.model';
 
 
 @Component({
@@ -10,6 +10,6 @@ import { Repartidor } from '../../models/repartidor.model';
   styleUrl: './detalle-repartidor.component.css'
 })
 export class DetalleRepartidorComponent {
-  @Input() repartidor!:Repartidor;
+  @Input() repartidor!:Chofer;
 
 }

@@ -3,35 +3,37 @@ import { Component, EventEmitter, Input, Output, SimpleChanges, inject } from '@
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Chofer } from '../../models/chofer.model';
 import { ChoferesServices } from '../../services/chofer.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-form-repartidor',
+  selector: 'app-form-chofer',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './form-repartidor.component.html',
-  styleUrl: './form-repartidor.component.css'
+  templateUrl: './form-chofer.component.html',
+  styleUrl: './form-chofer.component.scss'
 })
-export class FormRepartidorComponent {
-  @Input() repartidor!:Chofer;
+export class FormChoferComponent {
+
+  @Input() chofer!:Chofer;
   @Input() pais:any;
   @Output() tareaRealizada = new EventEmitter<any>();
 
   tipoForm ="Agregar repartidor"
   repartidorSvc = inject(ChoferesServices)
+  toast = inject(ToastrService)
  
-  imagen :any;
+  imagen :any; 
 
   esProfesional: boolean = false;
 
   ngOnInit():void{
-    if(this.repartidor){
-      this.tipoForm = "Modificar repartidor"
-      this.pais = this.repartidor.pais_origen as string
+    if(this.chofer){
+      this.tipoForm = "Modificar chofer"
+      this.pais = this.chofer.pais_origen as string
       this.form.patchValue({
-        nombre: this.repartidor.nombre,
-        pais: this.repartidor.pais_origen,
-        nacimiento: this.repartidor.fecha_nacimiento,
+        nombre: this.chofer.nombre,
+        pais: this.chofer.pais_origen,
+        nacimiento: this.chofer.fecha_nacimiento,
         //imagen:this.pelicula.src_foto
       });
       
@@ -66,11 +68,12 @@ export class FormRepartidorComponent {
       url_foto_pais:this.pais.foto
     }
 
-    if(this.repartidor){
-      nuevoActor.id = this.repartidor.id
+    if(this.chofer){
+      nuevoActor.id = this.chofer.id
       this.repartidorSvc.updateData(nuevoActor as Chofer).then(()=>this.tareaRealizada.emit())
     }else{
       this.repartidorSvc.newData(nuevoActor as Chofer).then((data)=>{
+        this.toast.success("Cargado correctamente");
         if(data.estado){
 
         }else{

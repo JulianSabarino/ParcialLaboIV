@@ -10,6 +10,8 @@ export class ActorsService {
 
   constructor(private firestore: Firestore) { }
 
+  userPoints: any;
+
   async newActor(actor: Actor)
   {
     let path = `actors/${actor.document}`;
@@ -21,7 +23,7 @@ export class ActorsService {
 
   async getActors()
   {
-    let path = `actors`;
+    let path = 'actors';
     //return (await getDocs(collection(getFirestore(),path)));
 
     let data = await getDocs(collection(getFirestore(),path));
