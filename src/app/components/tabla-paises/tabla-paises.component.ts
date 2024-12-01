@@ -100,10 +100,6 @@ export class TablaPaisesComponent {
 ]
   ngOnInit(): void {
 
-
-    /*next?: ((value: { nombre: string; foto: string; }[]) => void) | null | undefined, 
-    error?: ((error: any) => void) | null | undefined, 
-    complete?*/
     this.paisesSvc.getCountries().subscribe(
       response => { 
         console.log(response)

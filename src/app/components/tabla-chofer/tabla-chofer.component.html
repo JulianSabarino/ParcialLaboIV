@@ -13,13 +13,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let repartidor of repartidores" id={{repartidor?.id}} (click)="seleccionarRepartidor(repartidor)">
-            <td>{{repartidor?.nombre}}</td>
-            <td  *ngIf="!tablaMin">{{repartidor?.dni}}</td>
-            <td  *ngIf="!tablaMin">{{repartidor?.fecha_nacimiento}}</td>
-            <td  *ngIf="!tablaMin">{{repartidor?.numero_licencia}}</td>
-            <td  *ngIf="!tablaMin">{{repartidor?.pais_origen}}</td>
-            <td  *ngIf="!tablaMin">{{repartidor?.apto_profesional?"Es apto":"No es apto"}}</td>
+          <tr *ngFor="let chofer of choferes" id={{chofer?.id}} (click)="seleccionarChofer(chofer)">
+            <td>{{chofer?.nombre}}</td>
+            <td  *ngIf="!tablaMin">{{chofer?.dni}}</td>
+            <td  *ngIf="!tablaMin">{{chofer?.fecha_nacimiento}}</td>
+            <td  *ngIf="!tablaMin">{{chofer?.numero_licencia}}</td>
+            <td  *ngIf="!tablaMin">{{chofer?.pais_origen}}</td>
+            <td  *ngIf="!tablaMin">{{chofer?.apto_profesional?"Es apto":"No es apto"}}</td>
           </tr>
           
         </tbody>

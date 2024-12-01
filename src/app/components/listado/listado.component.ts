@@ -1,33 +1,32 @@
 import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { DetalleRepartidorComponent } from '../detalle-repartidor/detalle-repartidor.component';
-import { TablaRepartidorComponent } from '../tabla-repartidor/tabla-repartidor.component';
-import { FormRepartidorComponent } from '../form-repartidor/form-repartidor.component';
 import { DetallePaisComponent } from '../detalle-pais/detalle-pais.component';
 import { Chofer } from '../../models/chofer.model';
+import { DetalleChoferComponent } from '../detalle-chofer/detalle-chofer.component';
+import { TablaChoferComponent } from '../tabla-chofer/tabla-chofer.component';
 
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [DetalleRepartidorComponent,
-    TablaRepartidorComponent,
-    FormRepartidorComponent,
+  imports: [
+    TablaChoferComponent,
     CommonModule,
-    DetallePaisComponent
+    DetallePaisComponent,
+    DetalleChoferComponent
   ],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
 export class ListadoComponent {
 
-  repartidorSelc!:Chofer
-  paisRepartidor:any;
-  repartidorSeleccionado(repartidor:Chofer){
-    this.repartidorSelc = repartidor
-    this.paisRepartidor={
-      nombre:repartidor.pais_origen,
-      foto:repartidor.url_foto_pais
+  choferSelc!:Chofer
+  paischofer:any;
+  choferSeleccionado(chofer:Chofer){
+    this.choferSelc = chofer
+    this.paischofer={
+      nombre:chofer.pais_origen,
+      foto:chofer.url_foto_pais
     }
   
   }
