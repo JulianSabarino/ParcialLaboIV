@@ -2,7 +2,7 @@
 
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <h1 class="display-4 fw-normal">Lista Vehiculos</h1>
-        <app-tabla-helados (heladoElegido)="heladoSelec($event)"></app-tabla-helados>
+        <app-tabla-vehiculos (vehiculoElegido)="vehiculoSelec($event)"></app-tabla-vehiculos>
     </div>
 
     <div>
@@ -13,7 +13,7 @@
                         <h4 class="my-0 fw-normal">Crear un vehiculo</h4>
                     </div>
                     <div class="card-body">
-                        <app-form-helados></app-form-helados>
+                        <app-form-vehiculos></app-form-vehiculos>
                     </div>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">Modificar Vehiculo</h4>
                     </div>
-                    <div class="card-body" *ngIf="helado">
-                        <app-form-helados [helado]="helado" (tareaRealizada)="tareaRealizada()"></app-form-helados>
+                    <div class="card-body" *ngIf="vehiculo">
+                        <app-form-vehiculos [vehiculo]="vehiculo" (tareaRealizada)="tareaRealizada()"></app-form-vehiculos>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
                     <div class="card-header py-3 text-white bg-primary border-primary">
                         <h4 class="my-0 fw-normal">Eliminar</h4>
                     </div>
-                    <div class="card-body" *ngIf="helado">
-                        <button type="button" class="w-100 btn btn-lg btn-primary" (click)="eliminarHelado()">Eliminar</button>
+                    <div class="card-body" *ngIf="vehiculo">
+                        <button type="button" class="w-100 btn btn-lg btn-primary" (click)="eliminarVehiculo()">Eliminar</button>
                     </div>
                 </div>
             </div>

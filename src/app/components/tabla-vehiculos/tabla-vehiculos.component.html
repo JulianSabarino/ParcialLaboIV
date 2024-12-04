@@ -9,11 +9,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let helado of helados" id={{helado?.id}} (click)="seleccionarPelicula(helado)">
-                <td>{{helado?.nombre}}</td>
-                <td>{{helado?.tipo}}</td>
-                <td>{{helado?.ruedas}} gr</td>
-                <td>${{helado?.capacidad}}</td>
+            <tr *ngFor="let vehiculo of vehiculos" id={{vehiculo?.id}} (click)="seleccionarPelicula(vehiculo)">
+                <td>{{vehiculo?.nombre}}</td>
+                <td>{{vehiculo?.tipo}}</td>
+                <td>{{vehiculo?.ruedas}}</td>
+                <td>{{vehiculo?.capacidad}}</td>
             </tr>
 
         </tbody>

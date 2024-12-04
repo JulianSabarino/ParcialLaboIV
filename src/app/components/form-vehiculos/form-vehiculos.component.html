@@ -33,7 +33,7 @@
             <label for="peso" class="form-label">Capacidad</label>
             <input type="number" class="form-control" id="capacidad" [formControl]="form.controls.capacidad" >
             <div class="text-danger" *ngIf="form.get('capacidad')?.touched">
-                <label *ngIf="form.controls.capacidad.getError('required')">Ingrese el capacidad de la pizza </label>
+                <label *ngIf="form.controls.capacidad.getError('required')">Ingrese el capacidad del transporte </label>
                 <label *ngIf="form.controls.capacidad.getError('min')">debe transportar minimo 2</label>
                 <label *ngIf="form.controls.capacidad.getError('max')">debe transportar maximo 100</label>
             </div>

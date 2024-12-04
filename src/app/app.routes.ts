@@ -10,14 +10,6 @@ export const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'actors',
-        loadChildren: ()=> import('./pages/actors/actors.routes').then(m=>m.routes)
-    },
-    {
-        path: 'films',
-        loadChildren: ()=> import('./pages/films/films.routes').then(m=>m.routes)
-    },
-    {
         path: 'home',
         loadComponent: ()=> import('./pages/home/home.component').then(m=>m.HomeComponent)
     },
@@ -38,7 +30,7 @@ export const routes: Routes = [
     },
     {
         path: 'vehiculos',
-        loadComponent: ()=> import('./pages/vehiculos/helados.component').then(m=>m.HeladosComponent),
+        loadComponent: ()=> import('./pages/vehiculos/vehiculos.component').then(m=>m.VehiculosComponent),
         canActivate:[authGuard]
     }
 ];

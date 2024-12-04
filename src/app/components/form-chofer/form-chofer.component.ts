@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, SimpleChanges, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Chofer } from '../../models/chofer.model';
 import { ChoferesServices } from '../../services/chofer.service';
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './form-chofer.component.html',
   styleUrl: './form-chofer.component.scss'
 })
-export class FormChoferComponent {
+export class FormChoferComponent implements OnInit{
 
   @Input() chofer!:Chofer;
   @Input() pais:any;
