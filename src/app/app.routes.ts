@@ -15,8 +15,7 @@ export const routes: Routes = [
     },
     {
         path: 'auth',
-        loadChildren: ()=> import('./pages/auth/auth.routes').then(m=>m.auth_routes),
-        canActivate:[noAuthGuard]
+        loadChildren: ()=> import('./pages/auth/auth.routes').then(m=>m.auth_routes)
     },
     {
         path: 'alta',
